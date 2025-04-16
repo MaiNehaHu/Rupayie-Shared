@@ -38,7 +38,7 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
 
   const personName = data[0]?.people.name;
   const contact = data[0]?.people.contact;
-  const categoryName = data[0].category.name;
+  const categoryName = data[0]?.category.name;
 
 
   return (
