@@ -14,7 +14,6 @@ interface Transaction {
   };
   note: string;
   pushedIntoTransactions: boolean;
-  status: string;
   people: {
     name: string;
     relation: string;
@@ -39,6 +38,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
 
   const personName = data[0]?.people.name;
   const contact = data[0]?.people.contact;
+  const categoryName = data[0].category.name;
+
 
   return (
     <div className="flex w-full justify-center font-['Poppins']">
@@ -61,7 +62,11 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
         </section>
 
         <section className="sm:mt-8 mt-4">
-          <p className="font-medium sm:text-base text-xs">Total {data.length} Entries</p>
+          <p className="font-medium sm:text-base text-xs">Total {data.length} entries
+            <span>
+              {" "} for "{categoryName}"
+            </span>
+          </p>
         </section>
 
         <section className="sm:mt-8 mt-2 w-full">
