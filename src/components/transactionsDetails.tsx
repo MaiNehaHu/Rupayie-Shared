@@ -103,8 +103,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
                   "bg-green-200" : title === "You Got"
                     ? "bg-rose-200" : "bg-gray-300"}`
               }>
-              <p className="text-center sm:text-sm text-[10px]">{title}</p>
-              <p className="font-medium sm:text-lg text-xs text-center">{formatAmount(price)}</p>
+              <p className="text-center sm:text-sm text-xs">{title}</p>
+              <p className="font-medium sm:text-lg text-sm text-center">{formatAmount(price)}</p>
             </div>
           ))}
         </section>
