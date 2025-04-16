@@ -23,7 +23,7 @@ const SharedTrans = () => {
                 }
 
                 const result = await response.json();
-                setData(result.transactions);
+                setData(result);
             } catch (err: any) {
                 setError(err.message || "Something went wrong");
                 console.error("Fetch Error:", err);
@@ -35,17 +35,17 @@ const SharedTrans = () => {
 
     return (
         <div>
-            <header className="w-full bg-[#4FB92D] px-10 py-4">
-                <h1 className="text-white font-semibold text-3xl">₹ Rupayie</h1>
+            <header className="w-full bg-[#4FB92D] sm:px-10 px-6 sm:py-4 py-2 sticky top-0">
+                <h1 className="text-white font-semibold sm:text-3xl text-lg">₹ Rupayie</h1>
             </header>
 
-            <div className="p-10">
+            <>
                 {error ? (
-                    <p className="text-red-600 font-medium">{error}</p>
-                ) : (
+                    <p className="text-red-600 font-medium p-10">{error}</p>
+                ) : data && (
                     <TransactionsDetails data={data} />
                 )}
-            </div>
+            </>
         </div>
     );
 };
