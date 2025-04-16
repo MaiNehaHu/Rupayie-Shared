@@ -46,13 +46,13 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
       <div className="max-w-3xl w-full bg-gray-100 sm:p-6 p-4 min-h-[90vh]">
         <section className="flex sm:flex-row flex-col w-fill justify-between">
           <div>
-            <h1 className="sm:text-xl text-base font-medium">Name: {personName}</h1>
-            <p className="sm:text-sm text-xs">+91 {contact}</p>
+            <h1 className="sm:text-xl text-sm font-medium">Name: {personName}</h1>
+            <p className="sm:text-sm text-[10px]">+91 {contact}</p>
           </div>
 
           <div>
-            <p className="sm:text-xl text-base font-medium text-right">Net Balance:</p>
-            <p className="text-right sm:text-base text-xs">
+            <p className="sm:text-xl text-sm font-medium text-right">Net Balance:</p>
+            <p className="text-right sm:text-base text-[10px]">
               <span>{totalBalance > 0 ? "You'll Give: " : "You'll Get: "}</span>
               <span className={`${totalBalance > 0 ? "text-red-500" : "text-green-500"} font-medium`}>
                 {formatAmount(totalBalance)}
@@ -103,8 +103,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
                   "bg-green-200" : title === "You Got"
                     ? "bg-rose-200" : "bg-gray-300"}`
               }>
-              <p className="text-center sm:text-sm text-xs">{title}</p>
-              <p className="font-medium sm:text-lg text-sm text-center">{formatAmount(price)}</p>
+              <p className="text-center sm:text-sm text-[10px]">{title}</p>
+              <p className="font-medium sm:text-lg text-xs text-center">{formatAmount(price)}</p>
             </div>
           ))}
         </section>
