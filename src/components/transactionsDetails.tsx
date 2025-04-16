@@ -47,12 +47,12 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
         <section className="flex sm:flex-row flex-col w-fill justify-between">
           <div>
             <h1 className="sm:text-xl text-xs font-medium">Name: {personName}</h1>
-            <p className="sm:text-sm text-[10px]">+91 {contact}</p>
+            <p className="sm:text-sm text-xs">+91 {contact}</p>
           </div>
 
           <div>
             <p className="sm:text-xl text-xs font-medium text-right">Net Balance:</p>
-            <p className="text-right sm:text-base text-[10px]">
+            <p className="text-right sm:text-base text-xs">
               <span>{totalBalance > 0 ? "You'll Give: " : "You'll Get: "}</span>
               <span className={`${totalBalance > 0 ? "text-red-500" : "text-green-500"} font-medium`}>
                 {formatAmount(totalBalance)}
@@ -73,17 +73,17 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-400">
-                <th className="text-left sm:text-base text-[10px] py-2 ">Entry</th>
-                <th className="text-left sm:text-base text-[10px] py-2">You Gave</th>
-                <th className="text-left sm:text-base text-[10px] py-2 ">You Got</th>
+                <th className="text-left sm:text-base text-xs py-2 ">Entry</th>
+                <th className="text-left sm:text-base text-xs py-2">You Gave</th>
+                <th className="text-left sm:text-base text-xs py-2 ">You Got</th>
               </tr>
             </thead>
             <tbody>
               {data.map((trans) => (
                 <tr key={trans._id}>
-                  <td className="py-2 sm:text-sm text-[10px] font-medium">{formatDateTimeSimple(trans.createdAt.toString())}</td>
-                  <td className="py-2 sm:text-sm text-[10px] font-medium text-red-500">{trans.category.sign === "-" ? formatAmount(trans.amount) : "-"}</td>
-                  <td className="py-2 sm:text-sm text-[10px] font-medium text-green-600">{trans.category.sign === "+" ? formatAmount(trans.amount) : "-"}</td>
+                  <td className="py-2 sm:text-sm text-xs font-medium">{formatDateTimeSimple(trans.createdAt.toString())}</td>
+                  <td className="py-2 sm:text-sm text-xs font-medium text-red-500">{trans.category.sign === "-" ? formatAmount(trans.amount) : "-"}</td>
+                  <td className="py-2 sm:text-sm text-xs font-medium text-green-600">{trans.category.sign === "+" ? formatAmount(trans.amount) : "-"}</td>
                 </tr>
               ))}
             </tbody>
@@ -103,7 +103,7 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
                   "bg-green-200" : title === "You Got"
                     ? "bg-rose-200" : "bg-gray-300"}`
               }>
-              <p className="text-center sm:text-sm text-[10px]">{title}</p>
+              <p className="text-center sm:text-sm text-xs">{title}</p>
               <p className="font-medium sm:text-lg text-xs text-center">{formatAmount(price)}</p>
             </div>
           ))}
