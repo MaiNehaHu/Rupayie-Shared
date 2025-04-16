@@ -23,7 +23,7 @@ const SharedTrans = () => {
                 }
 
                 const result = await response.json();
-                setData(result);
+                setData(result.transactions);
             } catch (err: any) {
                 setError(err.message || "Something went wrong");
                 console.error("Fetch Error:", err);
