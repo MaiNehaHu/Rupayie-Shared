@@ -42,8 +42,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
 
 
   return (
-    <div id="print-section" className="flex w-full justify-center font-['Poppins']">
-      <div className="max-w-3xl w-full bg-white sm:p-6 p-4 min-h-[90vh]">
+    <div className="flex w-full justify-center font-['Poppins']">
+      <div id="print-section" className="max-w-3xl w-full bg-white sm:p-6 p-4 min-h-[90vh]">
         <section className="flex sm:flex-row flex-col w-fill justify-between">
           <div>
             <h1 className="sm:text-xl text-sm font-medium">Name: {personName}</h1>
@@ -54,7 +54,7 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
             <p className="sm:text-xl text-sm font-medium text-right">Net Balance:</p>
             <p className="text-right sm:text-base text-[10px]">
               <span>{totalBalance > 0 ? "You'll Give: " : "You'll Get: "}</span>
-              <span className={`${totalBalance > 0 ? "text-red-500" : "text-green-500"} font-medium`}>
+              <span className={`${totalBalance > 0 ? "text-[#fb2c36]" : "text-[#00c951]"} font-medium`}>
                 {formatAmount(totalBalance)}
               </span>
             </p>
@@ -72,7 +72,7 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
         <section className="sm:mt-8 mt-4 w-full">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-400">
+              <tr className="border-b border-[#99a1af]">
                 <th className="text-left sm:text-base text-xs py-2 ">Entry</th>
                 <th className="text-left sm:text-base text-xs py-2">You Gave</th>
                 <th className="text-left sm:text-base text-xs py-2 ">You Got</th>
@@ -82,8 +82,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
               {data.map((trans) => (
                 <tr key={trans._id}>
                   <td className="py-2 sm:text-sm text-xs font-medium">{formatDateTimeSimple(trans.createdAt.toString())}</td>
-                  <td className="py-2 sm:text-sm text-xs font-medium text-red-500">{trans.category.sign === "-" ? formatAmount(trans.amount) : "-"}</td>
-                  <td className="py-2 sm:text-sm text-xs font-medium text-green-600">{trans.category.sign === "+" ? formatAmount(trans.amount) : "-"}</td>
+                  <td className="py-2 sm:text-sm text-xs font-medium text-[#fb2c36]">{trans.category.sign === "-" ? formatAmount(trans.amount) : "-"}</td>
+                  <td className="py-2 sm:text-sm text-xs font-medium text-[#00a63e]">{trans.category.sign === "+" ? formatAmount(trans.amount) : "-"}</td>
                 </tr>
               ))}
             </tbody>
@@ -100,8 +100,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
               key={title}
               className={"sm:p-4 p-3 rounded-xl w-full sm:w-[32%]  flex flex-col sm:gap-3 gap-1 " +
                 `${title === "You Gave" ?
-                  "bg-green-200" : title === "You Got"
-                    ? "bg-rose-200" : "bg-gray-300"}`
+                  "bg-[#b9f8cf]" : title === "You Got"
+                    ? "bg-[#ffccd3]" : "bg-[#d1d5dc]"}`
               }>
               <p className="text-center sm:text-sm text-xs">{title}</p>
               <p className="font-medium sm:text-lg text-sm text-center">{formatAmount(price)}</p>
