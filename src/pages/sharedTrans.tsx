@@ -67,6 +67,7 @@ const SharedTrans = () => {
         }
     }
 
+    
     return (
         <div className={`${error ? "bg-white" : data.length > 0 ? "bg-gray-200" : "bg-[#fcfbed]"}` + " min-h-screen"}>
             <header className="w-full bg-[#4FB92D] sm:px-10 px-4 sm:py-4 py-2 sticky top-0 flex flex-row justify-between">
