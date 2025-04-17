@@ -79,15 +79,17 @@ const SharedTrans = () => {
             <header className="w-full bg-[#4FB92D] sm:px-10 px-4 sm:py-4 py-2 sticky top-0 flex flex-row justify-between">
                 <h1 className="text-white font-semibold sm:text-3xl text-xl">₹ Rupayie</h1>
 
-                <button
-                    onClick={handlePrint}
-                    className="flex flex-row items-center gap-2 sm:px-4 px-2 sm:py-2 py-1 sm:rounded-xl rounded-lg bg-white cursor-pointer hover:bg-gray-100 transition-colors font-medium font-['Poppins']"
-                >
-                    <h3 className="text-[#4FB92D] sm:text-base text-xs">
-                        Download
-                    </h3>
-                    <FiDownload className="text-[#4FB92D] sm:text-base text-xs" />
-                </button>
+                {data.length > 0 &&
+                    <button
+                        onClick={handlePrint}
+                        className="flex flex-row items-center gap-2 sm:px-4 px-2 sm:py-2 py-1 sm:rounded-xl rounded-lg bg-white cursor-pointer hover:bg-gray-100 transition-colors font-medium font-['Poppins']"
+                    >
+                        <h3 className="text-[#4FB92D] sm:text-base text-xs">
+                            Download
+                        </h3>
+                        <FiDownload className="text-[#4FB92D] sm:text-base text-xs" />
+                    </button>
+                }
             </header>
 
             <>
@@ -105,7 +107,7 @@ const SharedTrans = () => {
                     </div>
                 )}
             </>
-        </div>
+        </div >
     );
 };
 
