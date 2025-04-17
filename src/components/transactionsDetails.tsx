@@ -42,8 +42,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
 
 
   return (
-    <div className="flex w-full justify-center font-['Poppins']">
-      <div className="max-w-3xl w-full bg-gray-100 sm:p-6 p-4 min-h-[90vh]">
+    <div id="print-section" className="flex w-full justify-center font-['Poppins']">
+      <div className="max-w-3xl w-full bg-white sm:p-6 p-4 min-h-[90vh]">
         <section className="flex sm:flex-row flex-col w-fill justify-between">
           <div>
             <h1 className="sm:text-xl text-sm font-medium">Name: {personName}</h1>
@@ -98,7 +98,7 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
           ].map(({ price, title }) => (
             <div
               key={title}
-              className={"sm:p-4 p-3 rounded-xl w-full sm:w-[49%] md:w-[32%]  flex flex-col sm:gap-3 gap-1 " +
+              className={"sm:p-4 p-3 rounded-xl w-full sm:w-[32%]  flex flex-col sm:gap-3 gap-1 " +
                 `${title === "You Gave" ?
                   "bg-green-200" : title === "You Got"
                     ? "bg-rose-200" : "bg-gray-300"}`
