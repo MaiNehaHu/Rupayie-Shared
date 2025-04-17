@@ -69,7 +69,7 @@ const SharedTrans = () => {
 
     return (
         <div className={`${error ? "bg-white" : data.length > 0 ? "bg-gray-200" : "bg-[#fcfbed]"}` + " min-h-screen"}>
-            <header className="w-full bg-[#4FB92D] sm:px-10 px-6 sm:py-4 py-2 sticky top-0 flex flex-row justify-between">
+            <header className="w-full bg-[#4FB92D] sm:px-10 px-4 sm:py-4 py-2 sticky top-0 flex flex-row justify-between">
                 <h1 className="text-white font-semibold sm:text-3xl text-xl">₹ Rupayie</h1>
 
                 <button
@@ -86,7 +86,7 @@ const SharedTrans = () => {
             <>
                 {error ? (
                     <div className="w-full flex flex-row justify-center items-center">
-                        <img className="w-[75%]" src="https://freefrontend.com/assets/img/500-error-page-html-templates/Error-500-alert.gif" alt="" />
+                        <img className="pointer-events-none w-[75%]" src="https://freefrontend.com/assets/img/500-error-page-html-templates/Error-500-alert.gif" alt="" />
                     </div>
                 ) : data.length > 0 ? (
                     <>
@@ -94,7 +94,7 @@ const SharedTrans = () => {
                     </>
                 ) : (
                     <div className="w-full flex flex-row justify-center items-center sm:mt-36 mt-10">
-                        <img className="sm:w-1/4 w-[60%]" src="https://cdn.dribbble.com/userupload/19248258/file/original-14b7591104f6dde68b8526dcddb6f02f.gif" alt="" />
+                        <img className="pointer-events-none sm:w-1/4 w-[60%]" src="https://cdn.dribbble.com/userupload/19248258/file/original-14b7591104f6dde68b8526dcddb6f02f.gif" alt="" />
                     </div>
                 )}
             </>
