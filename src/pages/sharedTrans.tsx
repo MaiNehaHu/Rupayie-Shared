@@ -35,39 +35,45 @@ const SharedTrans = () => {
     }, [token]);
 
     const handlePrint = () => {
-        const content = document.getElementById('print-section')?.innerHTML;
+        const content = document.getElementById('print-section');
         if (!content) return;
 
-        const win = window.open('', '', 'height=700,width=900');
-        if (win) {
-            win.document.write('<html><head><title>Print</title>');
+        const printWindow = window.open('', '', 'height=800,width=1000');
 
-            // ✅ Include Google Fonts explicitly
-            win.document.write(`
-                <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-                <style>
-                  body { font-family: 'Poppins', sans-serif; }
-                </style>
-              `);
+        if (!printWindow) return;
 
-            // Also include your Tailwind or global styles
-            Array.from(document.querySelectorAll('link[rel="stylesheet"], style')).forEach((el) => {
-                win?.document.write(el.outerHTML);
-            });
+        const contentHtml = content.innerHTML;
 
-            win.document.write('</head><body>');
-            win.document.write(content);
-            win.document.write('</body></html>');
-            win.document.close();
-            win.focus();
-            setTimeout(() => {
-                win.print();
-                win.close();
-            }, 500);
-        }
-    }
+        printWindow.document.write('<html><head><title>Print</title>');
 
-    
+        // ✅ Add fonts explicitly
+        printWindow.document.write(`
+          <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+          <style>
+            body { font-family: 'Poppins', sans-serif; margin: 0; padding: 1rem; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+          </style>
+        `);
+
+        // ✅ Clone all <link rel="stylesheet"> and <style> tags
+        document.querySelectorAll('link[rel="stylesheet"], style').forEach((el) => {
+            printWindow?.document.write(el.outerHTML);
+        });
+
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(`<div>${contentHtml}</div>`);
+        printWindow.document.write('</body></html>');
+
+        printWindow.document.close();
+
+        // Give it time to render styles
+        printWindow.focus();
+        setTimeout(() => {
+            printWindow.print();
+            printWindow.close();
+        }, 500);
+    };
+
     return (
         <div className={`${error ? "bg-white" : data.length > 0 ? "bg-gray-200" : "bg-[#fcfbed]"}` + " min-h-screen"}>
             <header className="w-full bg-[#4FB92D] sm:px-10 px-4 sm:py-4 py-2 sticky top-0 flex flex-row justify-between">
