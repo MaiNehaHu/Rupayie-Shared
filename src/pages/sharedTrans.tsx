@@ -24,7 +24,7 @@ const SharedTrans = () => {
                 }
 
                 const result = await response.json();
-                setData(result);
+                setData(result.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
             } catch (err: any) {
                 setError(err.message || "Something went wrong");
                 console.error("Fetch Error:", err);
