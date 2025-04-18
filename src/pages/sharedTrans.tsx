@@ -18,7 +18,7 @@ const SharedTrans = () => {
             }
 
             try {
-                const response = await fetch(`${API_URL}/api/share-link/shared/${token}`);
+                const response = await fetch(`${API_URL}/api/share/user-transactions/${token}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch data from server");
                 }
