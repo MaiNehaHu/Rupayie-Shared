@@ -4,6 +4,7 @@ import SharedTrans from './pages/sharedTrans'
 import Home from './pages/home'
 import './App.css';
 import ErrorPage from './pages/errorPage';
+import PrivacyPolicy from './pages/privacyPolicy';
 
 function App() {
 
@@ -22,7 +23,12 @@ function App() {
             path='/shared/:token'
             element={<SharedTrans />}
           />
-          
+
+          <Route
+            path='/privacy-policy'
+            element={<PrivacyPolicy />}
+          />
+
           <Route
             path='*'
             element={<ErrorPage />}
