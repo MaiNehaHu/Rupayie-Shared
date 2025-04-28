@@ -5,6 +5,7 @@ import Home from './pages/home'
 import './App.css';
 import ErrorPage from './pages/errorPage';
 import PrivacyPolicy from './pages/privacyPolicy';
+import DeleteAccount from './pages/deleteAccount';
 
 function App() {
 
@@ -27,6 +28,11 @@ function App() {
           <Route
             path='/privacy-policy'
             element={<PrivacyPolicy />}
+          />
+
+          <Route
+            path='/delete-account'
+            element={<DeleteAccount />}
           />
 
           <Route
