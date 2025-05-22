@@ -13,4 +13,16 @@
   body {
     background: white !important;
   }
+
+  .light-green-bg {
+    background-color: #b9f8cf;
+  }
+
+  .light-red-bg {
+    background-color: #ffccd3;
+  }
+
+  .light-gray-bg {
+    background-color: #d1d5dc;
+  }
 }

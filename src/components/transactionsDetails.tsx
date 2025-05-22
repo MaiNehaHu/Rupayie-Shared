@@ -100,8 +100,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
               key={title}
               className={"sm:p-4 p-3 rounded-xl w-full sm:w-[32%]  flex flex-col sm:gap-3 gap-1 " +
                 `${title === "You Gave" ?
-                  "bg-[#b9f8cf]" : title === "You Got"
-                    ? "bg-[#ffccd3]" : "bg-[#d1d5dc]"}`
+                  "bg-[#b9f8cf] light-green-bg" : title === "You Got"
+                    ? "bg-[#ffccd3] light-red-bg" : "bg-[#d1d5dc] light-gray-bg"}`
               }>
               <p className="text-center sm:text-sm text-xs">{title}</p>
               <p className="font-medium sm:text-lg text-sm text-center">{formatAmount(price)}</p>
