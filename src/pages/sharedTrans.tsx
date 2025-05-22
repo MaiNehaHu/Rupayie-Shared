@@ -47,11 +47,13 @@ const SharedTrans = () => {
         // Print after delay
         setTimeout(() => {
             window.print();
+        }, 1000);
 
+        setTimeout(() => {
             // Restore view after print
             header.style.display = "flex";
             printSection.classList.remove("min-h-[100dvh]");
-        }, 1000);
+        }, 2000);
     };
 
     return (
