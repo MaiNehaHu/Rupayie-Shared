@@ -40,20 +40,8 @@ const SharedTrans = () => {
 
         if (!header || !printSection) return;
 
-        // Hide header and set min-height
-        header.style.display = "none";
-        printSection.classList.add("min-h-[100dvh]");
-
-        // Print after delay
-        setTimeout(() => {
-            window.print();
-        }, 1000);
-
-        setTimeout(() => {
-            // Restore view after print
-            header.style.display = "flex";
-            printSection.classList.remove("min-h-[100dvh]");
-        }, 2000);
+        // Print 
+        window.print();
     };
 
     return (
