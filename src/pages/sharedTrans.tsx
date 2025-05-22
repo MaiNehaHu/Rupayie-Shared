@@ -35,11 +35,23 @@ const SharedTrans = () => {
     }, [token]);
 
     const handlePrint = () => {
-        document.getElementById("header")!.style.display = "none";
-        document.getElementById("print-section")!.classList.add("min-h-[100dvh]")
-        window.print();
-        document.getElementById("header")!.style.display = "flex";
-        document.getElementById("print-section")!.classList.remove("min-h-[100dvh]")
+        const header = document.getElementById("header");
+        const printSection = document.getElementById("print-section");
+
+        if (!header || !printSection) return;
+
+        // Hide header and set min-height
+        header.style.display = "none";
+        printSection.classList.add("min-h-[100dvh]");
+
+        // Print after delay
+        setTimeout(() => {
+            window.print();
+
+            // Restore view after print
+            header.style.display = "flex";
+            printSection.classList.remove("min-h-[100dvh]");
+        }, 1000);
     };
 
     return (
