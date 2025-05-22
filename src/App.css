@@ -25,4 +25,11 @@
   .light-gray-bg {
     background-color: #d1d5dc;
   }
+
+  .light-green-bg,
+  .light-red-bg,
+  .light-gray-bg {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
