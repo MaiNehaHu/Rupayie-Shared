@@ -42,8 +42,8 @@ const TransactionsDetails = ({ data }: { data: Transaction[] }) => {
 
 
   return (
-    <div className="flex w-full justify-center font-['Poppins']">
-      <div id="print-section" className="max-w-3xl w-full bg-white sm:p-6 p-4 min-h-[90vh]">
+    <div className="flex w-full h-full justify-center font-['Poppins']">
+      <div id="print-section" className="max-w-3xl w-full bg-white sm:p-6 p-4 min-h-[90vh] h-full">
         <section className="flex sm:flex-row flex-col w-fill justify-between">
           <div>
             <h1 className="sm:text-xl text-sm font-medium">Name: {personName}</h1>

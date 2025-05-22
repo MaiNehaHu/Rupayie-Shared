@@ -35,48 +35,16 @@ const SharedTrans = () => {
     }, [token]);
 
     const handlePrint = () => {
-        const content = document.getElementById('print-section');
-        if (!content) return;
-
-        const printWindow = window.open('', '', 'height=800,width=1000');
-
-        if (!printWindow) return;
-
-        const contentHtml = content.innerHTML;
-
-        printWindow.document.write('<html><head><title>Print</title>');
-
-        // ✅ Add fonts explicitly
-        printWindow.document.write(`
-          <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-          <style>
-            body { font-family: 'Poppins', sans-serif; margin: 0; padding: 1rem; }
-            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-          </style>
-        `);
-
-        // ✅ Clone all <link rel="stylesheet"> and <style> tags
-        document.querySelectorAll('link[rel="stylesheet"], style').forEach((el) => {
-            printWindow?.document.write(el.outerHTML);
-        });
-
-        printWindow.document.write('</head><body>');
-        printWindow.document.write(`<div>${contentHtml}</div>`);
-        printWindow.document.write('</body></html>');
-
-        printWindow.document.close();
-
-        // Give it time to render styles
-        printWindow.focus();
-        setTimeout(() => {
-            printWindow.print();
-            printWindow.close();
-        }, 500);
+        document.getElementById("header")!.style.display = "none";
+        document.getElementById("print-section")!.classList.add("min-h-[100dvh]")
+        window.print();
+        document.getElementById("header")!.style.display = "flex";
+        document.getElementById("print-section")!.classList.remove("min-h-[100dvh]")
     };
 
     return (
         <div className={`${error ? "bg-white" : data.length > 0 ? "bg-gray-200" : "bg-[#fcfbed]"}` + " min-h-screen"}>
-            <header className="w-full bg-[#4FB92D] sm:px-10 px-4 sm:py-4 py-2 sticky top-0 flex flex-row justify-between">
+            <header id="header" className="w-full bg-[#4FB92D] sm:px-10 px-4 sm:py-4 py-2 sticky top-0 flex flex-row justify-between">
                 <h1 className="text-white font-semibold sm:text-3xl text-xl">₹ Rupayie</h1>
 
                 {data.length > 0 &&
